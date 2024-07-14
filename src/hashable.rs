@@ -1,7 +1,9 @@
-pub trait Hashable {
-    fn bytes(&self) -> Vec<u8>;
+use super::*;
 
-    fn hash(&self) -> Vec<u8> {
+pub trait Hashable {
+    fn bytes(&self) -> Hash;
+
+    fn hash(&self) ->  Hash {
         return crypto_hash::digest(crypto_hash::Algorithm::SHA256, &self.bytes())
     }
 }
